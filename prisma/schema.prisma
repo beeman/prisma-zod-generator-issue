@@ -13,6 +13,7 @@ generator zod {
   output            = "../generated/schemas"
   isGenerateSelect  = true
   isGenerateInclude = true
+  config            = "./zod-generator.config.json"
 }
 
 datasource db {
