@@ -1,0 +1,29 @@
+name: Build
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+
+jobs:
+  dev-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+        name: Checkout [dev]
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4.1.0
+      - uses: actions/cache@v4.2.3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: '22'
+      - run: pnpm run build
