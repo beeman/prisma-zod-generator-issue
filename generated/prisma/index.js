@@ -125,10 +125,10 @@ const config = {
       "fromEnvVar": null
     },
     "config": {
-      "runtime": "nodejs",
       "importFileExtension": "js",
-      "generatedFileExtension": "ts",
       "moduleFormat": "esm",
+      "generatedFileExtension": "ts",
+      "runtime": "nodejs",
       "engineType": "client"
     },
     "binaryTargets": [
@@ -146,7 +146,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -156,6 +156,7 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -164,8 +165,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider               = \"prisma-client-js\"\n  output                 = \"../generated/prisma\"\n  previewFeatures        = [\"driverAdapters\", \"queryCompiler\"]\n  runtime                = \"nodejs\"\n  moduleFormat           = \"esm\"\n  generatedFileExtension = \"ts\"\n  importFileExtension    = \"js\"\n}\n\ngenerator zod {\n  provider          = \"prisma-zod-generator\"\n  output            = \"../generated/schemas\"\n  isGenerateSelect  = true\n  isGenerateInclude = true\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id    Int     @id @default(autoincrement())\n  email String  @unique\n  name  String?\n}\n",
-  "inlineSchemaHash": "35e40bd009e40841124fdb6379cfa9e454a3f98ed33f9e40dda295927dce32bf",
+  "inlineSchema": "generator client {\n  provider               = \"prisma-client-js\"\n  output                 = \"../generated/prisma\"\n  previewFeatures        = [\"driverAdapters\", \"queryCompiler\"]\n  runtime                = \"nodejs\"\n  moduleFormat           = \"esm\"\n  generatedFileExtension = \"ts\"\n  importFileExtension    = \"js\"\n}\n\ngenerator zod {\n  provider          = \"prisma-zod-generator\"\n  output            = \"../generated/schemas\"\n  isGenerateSelect  = true\n  isGenerateInclude = true\n  config            = \"./zod-generator.config.json\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id    Int     @id @default(autoincrement())\n  email String  @unique\n  name  String?\n}\n",
+  "inlineSchemaHash": "31643bbb34638af00a1f02041946cc74b96e6c28adc1d7fb7c75ec033e7fd461",
   "copyEngine": true
 }
 
