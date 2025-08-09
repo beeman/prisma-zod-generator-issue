@@ -7,15 +7,14 @@ concurrency:
 on:
   push:
     branches:
-      - dev
+      - main
   pull_request:
 
 jobs:
-  dev-e2e:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
-        name: Checkout [dev]
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v4.1.0
