@@ -120,14 +120,14 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/beeman/dev/github/beeman/prisma-zod-generator-issue/generated/prisma",
+      "value": "/Users/beeman/dev/beeman/prisma-zod-generator-issue/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
-      "moduleFormat": "esm",
       "runtime": "nodejs",
-      "generatedFileExtension": "ts",
       "importFileExtension": "js",
+      "generatedFileExtension": "ts",
+      "moduleFormat": "esm",
       "engineType": "client"
     },
     "binaryTargets": [
@@ -141,7 +141,7 @@ const config = {
       "driverAdapters",
       "queryCompiler"
     ],
-    "sourceFilePath": "/Users/beeman/dev/github/beeman/prisma-zod-generator-issue/prisma/schema.prisma",
+    "sourceFilePath": "/Users/beeman/dev/beeman/prisma-zod-generator-issue/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -155,7 +155,6 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
