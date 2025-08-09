@@ -25,4 +25,5 @@ jobs:
       - uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm run build
