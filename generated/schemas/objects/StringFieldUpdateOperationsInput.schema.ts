@@ -1,9 +1,10 @@
-import { z } from 'zod'
+import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
-const Schema = z
-  .object({
-    set: z.string().optional(),
-  })
-  .strict()
 
-export const StringFieldUpdateOperationsInputObjectSchema = Schema
+export const StringFieldUpdateOperationsInputObjectSchema: z.ZodType<Prisma.StringFieldUpdateOperationsInput, Prisma.StringFieldUpdateOperationsInput> = z.object({
+  set: z.string().optional()
+}).strict();
+export const StringFieldUpdateOperationsInputObjectZodSchema = z.object({
+  set: z.string().optional()
+}).strict();

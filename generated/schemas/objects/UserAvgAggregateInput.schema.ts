@@ -1,9 +1,10 @@
-import { z } from 'zod'
+import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
-const Schema = z
-  .object({
-    id: z.literal(true).optional(),
-  })
-  .strict()
 
-export const UserAvgAggregateInputObjectSchema = Schema
+export const UserAvgAggregateInputObjectSchema: z.ZodType<Prisma.UserAvgAggregateInputType, Prisma.UserAvgAggregateInputType> = z.object({
+  id: z.literal(true).optional()
+}).strict();
+export const UserAvgAggregateInputObjectZodSchema = z.object({
+  id: z.literal(true).optional()
+}).strict();

@@ -1,26 +1,12 @@
-import { z } from 'zod'
-import { UserWhereInputObjectSchema } from './UserWhereInput.schema.js'
-import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema.js'
+import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
-const Schema = z
-  .object({
-    id: z.number().int(),
-    email: z.string(),
-    AND: z
-      .union([z.lazy(() => UserWhereInputObjectSchema), z.lazy(() => UserWhereInputObjectSchema).array()])
-      .optional(),
-    OR: z
-      .lazy(() => UserWhereInputObjectSchema)
-      .array()
-      .optional(),
-    NOT: z
-      .union([z.lazy(() => UserWhereInputObjectSchema), z.lazy(() => UserWhereInputObjectSchema).array()])
-      .optional(),
-    name: z
-      .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
-      .optional()
-      .nullable(),
-  })
-  .strict()
 
-export const UserWhereUniqueInputObjectSchema = Schema
+export const UserWhereUniqueInputObjectSchema: z.ZodType<Prisma.UserWhereUniqueInput, Prisma.UserWhereUniqueInput> = z.object({
+  id: z.number().int(),
+  email: z.string()
+}).strict();
+export const UserWhereUniqueInputObjectZodSchema = z.object({
+  id: z.number().int(),
+  email: z.string()
+}).strict();

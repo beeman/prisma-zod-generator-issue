@@ -1,11 +1,14 @@
-import { z } from 'zod'
+import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
-const Schema = z
-  .object({
-    id: z.literal(true).optional(),
-    email: z.literal(true).optional(),
-    name: z.literal(true).optional(),
-  })
-  .strict()
 
-export const UserMaxAggregateInputObjectSchema = Schema
+export const UserMaxAggregateInputObjectSchema: z.ZodType<Prisma.UserMaxAggregateInputType, Prisma.UserMaxAggregateInputType> = z.object({
+  id: z.literal(true).optional(),
+  email: z.literal(true).optional(),
+  name: z.literal(true).optional()
+}).strict();
+export const UserMaxAggregateInputObjectZodSchema = z.object({
+  id: z.literal(true).optional(),
+  email: z.literal(true).optional(),
+  name: z.literal(true).optional()
+}).strict();
