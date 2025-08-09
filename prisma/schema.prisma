@@ -1,0 +1,27 @@
+generator client {
+  provider               = "prisma-client-js"
+  output                 = "../generated/prisma"
+  previewFeatures        = ["driverAdapters", "queryCompiler"]
+  runtime                = "nodejs"
+  moduleFormat           = "esm"
+  generatedFileExtension = "ts"
+  importFileExtension    = "js"
+}
+
+generator zod {
+  provider          = "prisma-zod-generator"
+  output            = "../generated/schemas"
+  isGenerateSelect  = true
+  isGenerateInclude = true
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
